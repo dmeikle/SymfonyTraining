@@ -1,3 +1,9 @@
+
+product_index:
+    pattern:  /products
+    defaults: { _controller: ProductBundle:Default:index }
+    methods: [GET]
+
 product_homepage:
     pattern:  /products/new
     defaults: { _controller: ProductBundle:Default:new }

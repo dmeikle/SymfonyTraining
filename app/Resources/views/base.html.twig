@@ -11,5 +11,8 @@
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        
+        
+        {{ render(controller('MainBundle:Hello:_latestTweets')) }}
     </body>
 </html>

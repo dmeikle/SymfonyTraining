@@ -20,4 +20,8 @@ class HelloController extends Controller
         //     array('name' => $name)
         // );
     }
+    
+    public function _latestTweetsAction() {
+        return new Response('The latest tweets');
+    }
 }

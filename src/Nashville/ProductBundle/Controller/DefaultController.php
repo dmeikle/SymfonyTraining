@@ -8,13 +8,21 @@ use Nashville\ProductBundle\Entity\Product;
 use Nashville\ProductBundle\Form\ProductType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Nashville\ProductBundle\Serializer\ProductSerializer;
-
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('ProductBundle:Default:index.html.twig', array('name' => $name));
+        $sc = $this->container->get('security.context');
+        if(!$sc->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException('Get Out!');
+        }
+        
+       // $user = $sc->getToken()->getUser();
+        $user = $this->getUser();
+        
+        return $this->render('ProductBundle:Default:index.html.twig');
     }
     
     public function newAction() {
@@ -67,7 +75,10 @@ class DefaultController extends Controller
    
         $products = $repository->findAll();
         
-       return  $this->render('ProductBundle:Default:list.html.twig',array('products' => $products));
+       $response = $this->render('ProductBundle:Default:list.html.twig',array('products' => $products));
+       $response->setSharedMaxAge(20);
+       
+       return $response;
     }
     
     public function listJsonAction() {

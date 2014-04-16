@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/bundles/main/bootstrap/css/bootstrap.css" />
+    {% endblock %}
+    
+    {% block title %}
+        this is my title
+    {% endblock %}
+    
+ {% block body %}
+      
+    <h1>Products</h1>
+    <ul>
+        {% for product in products %}
+       
+            <li><form method="post">{{ product.name }} <a href="{{ path('products_view', {'id' : product.id})}}">view</a> | 
+                
+                 <input type="submit" value="delete">
+                <input type="hidden" value="{{ product.id }}" name="id" />
+
+                 </form>
+                </li>
+        {% endfor %}
+    </ul>
+     
+ {% endblock %}

@@ -1,0 +1,22 @@
+{% block form_row %}
+{% spaceless %}
+{% if errors|length > 0 %}
+    <div class="error">        
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {% if help is defined %}
+            <div class="help">{{ help }}</div>
+        {% endif %}
+        <div class="bar">{{ form_widget(form) }}</div>
+    </div>
+{% else %}
+    <div class="foo">        
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        <div class="bar">{{ form_widget(form) }}</div>
+    </div>
+{% endif %}
+{% endspaceless %}
+{% endblock form_row %}
+
+

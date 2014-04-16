@@ -1,0 +1,7 @@
+hello:
+    path:     /hello/{userName}
+    defaults: { _controller: MainBundle:Hello:index }
+    #requirements: 
+        #userName: bike|car
+    #requirements: 
+    #    userName:\d+

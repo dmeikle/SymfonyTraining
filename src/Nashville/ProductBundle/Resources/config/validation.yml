@@ -1,0 +1,4 @@
+Nashville\ProductBundle\Entity\Product:
+    properties:
+        name:
+            - NotBlank: ~

@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/bundles/main/bootstrap/css/bootstrap.css" />
+    {% endblock %}
+    
+    {% block title %}
+        this is my title
+    {% endblock %}
+    
+ {% block body %}
+ <p>&nbsp;</p>
+
+  
+
+     <table width =400 align=center>
+            <tr>
+                <td> <h1>View Product</h1></td>
+            </tr>
+         <tr>
+             <td>
+                 Name: {{ product.name }}
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 Description: {{ product.description }}
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 Price:  ${{ product.price }}
+                    
+             </td>
+         </tr>
+     </table>
+        
+        
+ {% endblock %}

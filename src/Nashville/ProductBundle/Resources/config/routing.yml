@@ -1,0 +1,34 @@
+product_homepage:
+    pattern:  /products/new
+    defaults: { _controller: ProductBundle:Default:new }
+    methods: [GET]
+
+product_save:
+    pattern:  /products/new
+    defaults: { _controller: ProductBundle:Default:save }
+    methods: [POST]
+    
+products_list_alpha_desc:
+    pattern:  /products/listAlphaDesc
+    defaults: { _controller: ProductBundle:Default:listAlphaDesc }   
+    
+    
+products_list_alpha_asc:
+    pattern:  /products/listAlphaAsc
+    defaults: { _controller: ProductBundle:Default:listAlphaAsc }
+    
+products_list:
+    pattern:  /products/list
+    defaults: { _controller: ProductBundle:Default:list }
+
+products_view:
+    pattern:  /products/view/{id}
+    defaults: { _controller: ProductBundle:Default:view }
+    
+products_remove:
+    pattern:  /products/remove/{id}
+    defaults: { _controller: ProductBundle:Default:remove }
+    
+products_list_json:
+     pattern:  /products/listJson
+     defaults: { _controller: ProductBundle:Default:listJson }
